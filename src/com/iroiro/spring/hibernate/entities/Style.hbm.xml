@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-1 21:42:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.iroiro.spring.hibernate.entities.Style" table="STYLES">
+        <id name="styId" type="java.lang.Integer">
+            <column name="STY_ID" />
+            <generator class="foreign" >
+            	<param name="property">restaurant</param>
+            </generator>
+        </id>
+        <property name="color" type="java.lang.Integer">
+            <column name="COLOR" />
+        </property>
+        <property name="hasTime" type="java.lang.Boolean">
+            <column name="HAS_TIME" />
+        </property>
+        <property name="hasOrderManager" type="java.lang.Boolean">
+            <column name="HAS_ORDER_MANAGER" />
+        </property>
+        <property name="hasSpecial" type="java.lang.Boolean">
+            <column name="HAS_SPECIAL" />
+        </property>
+        <one-to-one name="restaurant" class="com.iroiro.spring.hibernate.entities.Restaurant"
+        	constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

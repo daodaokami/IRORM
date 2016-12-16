@@ -1,0 +1,32 @@
+.table-div {
+    width: 60%;
+    margin-left: 20%;
+}
+.dish-img {
+    width: 32px;
+}
+
+.dialog-table {
+    width: 100%;
+}
+
+.dialog-input {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.dialog-table tr {
+    height: 44px;
+    line-height: 44px;
+}
+
+.dialog-input {
+    height: 36px;
+    line-height : 36px;
+}
+
+.dialog-button-div {
+    margin-top: 20px;
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-1 21:42:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.iroiro.spring.hibernate.entities.Material" table="MATERIALS">
+        <id name="mrlId" type="java.lang.Integer">
+            <column name="MRL_ID" />
+            <generator class="native" />
+        </id>
+        <property name="mrlName" type="java.lang.String">
+            <column name="MRL_NAME" />
+        </property>
+        <property name="mrlPrice" type="java.lang.Integer">
+            <column name="MRL_PRICE" />
+        </property>
+        <property name="mrlAmount" type="java.lang.Integer">
+            <column name="MRL_AMOUNT" />
+        </property>
+        <property name="exProperties" type="java.lang.String">
+            <column name="EX_Pro" />
+        </property>
+        <many-to-one name="restaurant" class="com.iroiro.spring.hibernate.entities.Restaurant" fetch="join">
+            <column name="RES_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

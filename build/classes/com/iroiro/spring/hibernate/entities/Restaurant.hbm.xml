@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-1 21:42:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.iroiro.spring.hibernate.entities.Restaurant" table="RESTAURANTS">
+        <id name="resId" type="java.lang.Integer">
+            <column name="RES_ID" />
+            <generator class="native" />
+        </id>
+        <property name="resName" type="java.lang.String">
+            <column name="RES_NAME" />
+        </property>
+        <property name="resAddress" type="java.lang.String">
+            <column name="RES_ADDRESS" />
+        </property>
+        <property name="resTele" type="java.lang.String">
+            <column name="RES_TELE" />
+        </property>
+        <one-to-one name="style" class="com.iroiro.spring.hibernate.entities.Style" cascade="all"></one-to-one>
+        <set name="EMPs" table="EMPLOYEES" cascade="all">
+            <key>
+                <column name="RES_ID" />
+            </key>
+            <one-to-many class="com.iroiro.spring.hibernate.entities.Employee" />
+        </set>
+        <set name="Dishes" table="DISHES" cascade="all">
+            <key>
+                <column name="RES_ID" />
+            </key>
+            <one-to-many class="com.iroiro.spring.hibernate.entities.Dish" />
+        </set>
+        <set name="Mrls" table="MATERIALS" cascade="all">
+            <key>
+                <column name="RES_ID" />
+            </key>
+            <one-to-many class="com.iroiro.spring.hibernate.entities.Material" />
+        </set>
+        <set name="Orders" table="ORDDERS" cascade="all">
+            <key>
+                <column name="RES_ID" />
+            </key>
+            <one-to-many class="com.iroiro.spring.hibernate.entities.Ordder" />
+        </set>
+    </class>
+</hibernate-mapping>

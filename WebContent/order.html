@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>IROIRO &mdash; 小餐厅管理系统定制平台</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Free HTML5 Template by FREEHTML5" />
+        <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+        <meta property="og:title" content=""/>
+        <meta property="og:image" content=""/>
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content=""/>
+        <meta property="og:description" content=""/>
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="" />
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:card" content="" />
+
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="css/animate.css">
+        <!-- Icomoon Icon Fonts-->
+        <link rel="stylesheet" href="css/icomoon.css">
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/menu.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <script src="js/modernizr-2.6.2.min.js"></script>
+
+    </head>
+    <body>
+        <nav id="fh5co-main-nav" role="navigation">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
+            <div class="js-fullheight fh5co-table">
+                <div class="fh5co-table-cell js-fullheight">
+                    <ul>
+                        <li><a href="index.html">主页</a></li>
+                        <li><a href="menu.html">餐厅订制</a></li>
+                        <li><a href="inventory.html">库存管理</a></li>
+                        <li><a href="order.html">创建订单</a></li>
+                        <li><a href="summary.html">订单统计</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="fh5co-page">
+            <header>
+                <div class="container">
+                    <div class="fh5co-navbar-brand"><a class="fh5co-logo" href="index.html">IROIRO</a></div>
+                    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+                </div>
+            </header>
+            <div id="fh5co-portfolio-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center heading-section">
+                            <h2>创建订单</h2>
+                            <h3>您可以帮助客人选择喜爱的菜品，并创建订单。</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="table-div">
+                            <table class="table">
+                                <tr>
+                                    <td>桌号：</td>
+                                    <td><input id="tab-id" placeholder="000"></input></td>
+                                    <td>服务员：</td>
+                                    <td><input id="emp-id" placeholder="000"></input></td>
+                                </tr>
+                        </div>
+                        <div class="table-div">
+                            <table id="menu-table" class="table">
+                                <tr>
+                                    <th>菜品名称</th>
+                                    <th>菜品价格</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td><input id="input-dish-id" placeholder="请输入菜品ID"></input></td>
+                                    <td></td>
+                                    <td><img id="add-dish" class="dish-img" style="cursor: pointer" src="images/icon-add.png"></td>
+                                </tr>
+                            </table>
+                        </div>
+                <div class="dialog-button-div">
+                    <button id="submit">确认订单</button>
+                </div>
+                    </div>
+                </div>
+
+                <!-- END fh5co-portfolio-section -->
+                <footer>
+                    <div id="footer" class="fh5co-border-line">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Copyright 2016 IROIRO. All Rights Reserved. <br>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 social-text-align">
+                                    <p class="fh5co-social-icons">
+                                    <a href="#"><i class="icon-twitter-with-circle"></i></a>
+                                    <a href="#"><i class="icon-facebook-with-circle"></i></a>
+                                    <a href="#"><i class="icon-instagram-with-circle"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div></div>
+
+            <!-- jQuery -->
+            <script src="js/jquery.min.js"></script>
+            <!-- jQuery Easing -->
+            <script src="js/jquery.easing.1.3.js"></script>
+            <!-- Bootstrap -->
+            <script src="js/bootstrap.min.js"></script>
+            <!-- Waypoints -->
+            <script src="js/jquery.waypoints.min.js"></script>
+            <!-- Portfolio Filter Mixitup -->
+            <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <!-- Main JS (Do not remove) -->
+            <script src="js/main.js"></script>
+
+            <script type="text/javascript">
+$(function () {
+    RESID = 1;
+    var filterList = {
+        init: function () {
+            $('#portfoliolist').mixItUp({
+                selectors: {
+                    target: '.portfolio',
+                    filter: '.filter'	
+                },
+                load: {
+                    filter: '.all'  
+                }     
+            });								
+        }
+    };
+    // Run the show!
+    filterList.init();
+    var cnt = 0;
+    var final_dishes = {};
+
+    function add_dish(dish) {
+        cnt += 1;
+        $('#menu-table tr:last').before('<tr><td><span id="dish-'+cnt+'">'+dish.dhName+'</span></td><td><span>'+dish.dhPrice+'</span></td><td><img style="cursor: pointer" id="delete-'+ cnt +'" class="dish-img" src="images/icon-delete.png"></td></tr>');
+        var s = '';
+        for (var k=0; k<dish.materials.length; k++) {
+            s += '<div>' + dish.materials[k].mrlName + '</div>'
+        }
+        $("#dish-"+cnt).popover({
+            trigger: 'hover',
+            placement: 'right',
+            title: dish.dhName + ' ' + dish.dhPrice,
+            html: true,
+            content: s,
+            delay:100
+        });
+        final_dishes[cnt] = dish;
+        $("#delete-"+cnt).click(function(){
+            var id = this.id.substring(7);
+            final_dishes[id] = undefined;
+            $(this).parent().parent().remove();
+        });
+
+    }
+
+    $("#add-dish").click(function(){
+        //var data = $.parseJSON('{"dishes":[{"dhId":1,"dhName":"拍黄瓜","dhPrice":15,"dhState":1,"imgURL":"","materials":[{"mrlAmount":0,"mrlId":0,"mrlName":"香肠","mrlPrice":0,"restaurant":null},{"mrlAmount":0,"mrlId":0,"mrlName":"花生","mrlPrice":0,"restaurant":null}],"restaurant":null},{"dhId":2,"dhName":"红烧肉","dhPrice":25,"dhState":0,"imgURL":"","materials":[{"mrlAmount":0,"mrlId":0,"mrlName":"香肠","mrlPrice":0,"restaurant":null},{"mrlAmount":0,"mrlId":0,"mrlName":"五花肉","mrlPrice":0,"restaurant":null}],"restaurant":null},{"dhId":4,"dhName":"照烧鸡腿","dhPrice":10,"dhState":0,"imgURL":"","materials":[{"mrlAmount":0,"mrlId":0,"mrlName":"鸡肉","mrlPrice":0,"restaurant":null},{"mrlAmount":0,"mrlId":0,"mrlName":"黄瓜","mrlPrice":0,"restaurant":null}],"restaurant":null}]}');
+        $.post('/IRORM/getitems.action', {resId:RESID, id:$("#input-dish-id").val(), type:'dish'}, function(data){
+            var dishes = data.dishes;
+            if (dishes.length > 0) {
+                if (dishes[0].dhState == 1) {
+                    add_dish(dishes[0]);
+                    $("#input-dish-id").val('');
+                } else {
+                    alert("对不起，这道菜没有了！");
+                }
+            } else {
+                alert("对不起，您输入的菜品有误！");
+            }
+        }, 'json');
+    });
+
+    $("#submit").click(function(){
+        var dish_list = '';
+        for (var j=1; j<=cnt; j++) {
+            if (final_dishes[j] != undefined) {
+                dish_list += final_dishes[j].dhId + ' ';
+            }
+        }
+        var submit_data = {};
+        submit_data['type'] = 'order';
+        submit_data['ctmTable'] = $("#tab-id").val();
+        submit_data['empId'] = $("#emp-id").val();
+        submit_data['dhList'] = dish_list;
+        submit_data['resId'] = RESID;
+        $.post('/IRORM/saveitems.action', submit_data, function(){
+            alert("下单成功！")
+            location.reload();   
+        }, 'json');
+    })
+});	
+            </script>
+    </body>
+</html>
+

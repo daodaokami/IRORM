@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-1 21:42:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.iroiro.spring.hibernate.entities.Customer" table="CUSTOMERS">
+        <id name="ctmId" type="java.lang.Integer">
+            <column name="CTM_ID" />
+            <generator class="native" />
+        </id>
+        <property name="ctmName" type="java.lang.String">
+            <column name="CTM_NAME" />
+        </property>
+        <set name="Orders" table="ORDDERS" >
+            <key>
+                <column name="CTM_ID" />
+            </key>
+            <one-to-many class="com.iroiro.spring.hibernate.entities.Ordder" />
+        </set>
+    </class>
+</hibernate-mapping>

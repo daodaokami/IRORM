@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>餐厅注册</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" media="screen" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="register.css">
+        <script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="register.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="title">
+            餐厅注册
+        </div>
+        <div class="information-div">
+            <table class="information">
+                <tr>
+                    <td class="name"> 餐厅名称 </td>
+                    <td> <input id="name"> </td>
+                </tr>
+                <tr>
+                    <td class="name"> 餐厅地址 </td>
+                    <td> <input id="address"> </td>
+                </tr>
+                <tr>
+                    <td class="name"> 餐厅电话 </td>
+                    <td> <input id="phone"> </td>
+                </tr>
+                <tr>
+                    <td class="name"> 需要订单管理 </td>
+                    <td> <select id="order"> 
+                        <option> 否 </option>  
+                        <option> 是 </option>    
+                    </select></td>
+                </tr>
+                <tr>
+                    <td class="name"> 包含特色菜 </td>
+                    <td> <select id="special"> 
+                        <option> 否 </option>  
+                        <option> 是 </option>    
+                    </select></td>
+                </tr>
+        </table>
+        </div>
+        <div class="submit-div">
+            <div class="submit" id="submit">
+                确认提交
+            </div>
+        </div>
+    </body>
+</html>

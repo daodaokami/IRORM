@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-1 21:42:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.iroiro.spring.hibernate.entities.Dish" table="DISHES">
+        <id name="dhId" type="java.lang.Integer">
+            <column name="DH_ID" />
+            <generator class="native" />
+        </id>
+        <property name="dhName" type="java.lang.String">
+            <column name="DH_NAME" />
+        </property>
+        <property name="dhPrice" type="java.lang.Integer">
+            <column name="DH_PRICE" />
+        </property>
+        <property name="dhState" type="java.lang.Integer">
+            <column name="DH_STATE" />
+        </property>
+        <property name="imgURL" type="java.lang.String">
+            <column name="IMG_URL" />
+        </property>
+        <property name="exProperties" type="java.lang.String">
+            <column name="EX_Pro" />
+        </property>
+        <many-to-one name="restaurant" class="com.iroiro.spring.hibernate.entities.Restaurant" fetch="join">
+            <column name="RES_ID" />
+        </many-to-one>
+        <set name="materials" table="DISHES_MATERIALS">
+            <key>
+                <column name="DISH_ID" />
+            </key>
+            <many-to-many class="com.iroiro.spring.hibernate.entities.Material" 
+              column="MATERIAL_ID"/>
+        </set>
+    </class>
+</hibernate-mapping>

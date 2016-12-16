@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-1 21:42:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.iroiro.spring.hibernate.entities.Ordder" table="ORDDERS">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="ORDER_ID" />
+            <generator class="native" />
+        </id>
+        <property name="date" type="java.util.Date">
+            <column name="DATE" />
+        </property>
+        <property name="ctmTable" type="int">
+            <column name="CTM_TABLE" />
+        </property>
+        <many-to-one name="restaurant" class="com.iroiro.spring.hibernate.entities.Restaurant" fetch="join">
+            <column name="RES_ID" />
+        </many-to-one>
+        
+        <many-to-one name="customer" class="com.iroiro.spring.hibernate.entities.Customer" fetch="join">
+            <column name="CTM_ID" />
+        </many-to-one>
+        
+        <many-to-one name="employee" class="com.iroiro.spring.hibernate.entities.Employee" fetch="join">
+            <column name="EMP_ID" />
+        </many-to-one>
+        <set name="dishes" table="ORDDERS_DISHES">
+            <key>
+                <column name="ORDER_ID" />
+            </key>
+            <many-to-many class="com.iroiro.spring.hibernate.entities.Dish" 
+            	column="DISH_ID"/>
+        </set>
+    </class>
+</hibernate-mapping>

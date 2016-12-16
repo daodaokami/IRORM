@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- struts2请求可受理的扩展名 -->
+	<constant name="struts.action.extension" value="action,do,"></constant>
+    
+    <package name="default" namespace="/" extends="struts-default">
+    	
+    	<action name="register"
+    		class="com.iroiro.spring.hibernate.action.RegisterRestaurantAction">
+    		<result>/register.jsp</result>
+    		</action>
+    	<action name="getitems"
+    		class="com.iroiro.spring.hibernate.action.GetItemsAction">
+    		<result name="success">/getitems.jsp</result>
+    		<result name="failed">/failed.jsp</result>
+    		</action>
+    	<action name="updateitems"
+    		class="com.iroiro.spring.hibernate.action.UpdateItemsAction">
+    		<result>/updateitems.jsp</result>
+    		<result name="failed">/failed.jsp</result>
+    		</action>
+    	<action name="saveitems"
+    		class="com.iroiro.spring.hibernate.action.SaveItemsAction">
+    		<result>/saveitems.jsp</result>
+    		</action>
+    	<action name="deleteitems"
+    		class="com.iroiro.spring.hibernate.action.DeleteItemsAction">
+    		<result name="success">/deleteitems.jsp</result>
+    		</action>	
+       	<action name="newordder"
+    		class="com.iroiro.spring.hibernate.action.NewOrdderAction"
+    		method="save">
+    		<result name="input">/newordder.jsp</result>
+    		</action>
+    	<action name="UploadIMG" 
+    		class="com.iroiro.spring.hibernate.action.UploadAction">
+    		<result>/success.jsp</result>
+    		</action>
+    	<action name="mgerExPro"
+    		class="com.iroiro.spring.hibernate.action.ManagerExPropertiesAction">
+    		<result>/mgexpro.jsp</result>
+    		</action>
+    		
+    </package>
+</struts>

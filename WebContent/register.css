@@ -1,0 +1,54 @@
+.title {
+    font-size: 44px;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.information-div {
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.information {
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.information tr {
+    height: 60px;
+    line-height: 60px;
+}
+
+.information td input {
+    height: 32px;
+    line-height: 32px;
+    border-radius: 6px;
+}
+.information td select {
+    height: 32px;
+    line-height: 32px;
+    width: 100%;
+}
+
+.information .name {
+    width: 140px;
+}
+
+.submit-div {
+    margin-top: 60px;
+    width: 100%;
+    text-align: center;
+}
+
+.submit {
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    width: 140px;
+    border-radius:10px;
+    background: #0099FF;
+    color: white;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-1 21:42:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.iroiro.spring.hibernate.entities.Employee" table="EMPLOYEES">
+        <id name="empId" type="java.lang.Integer">
+            <column name="EMP_ID" />
+            <generator class="native" />
+        </id>
+        <property name="empName" type="java.lang.String">
+            <column name="EMP_NAME" />
+        </property>
+        <property name="empTele" type="java.lang.String">
+            <column name="EMP_TELE" />
+        </property>
+        <property name="empPosition" type="java.lang.Integer">
+            <column name="EMP_POSITION" />
+        </property>
+        <property name="empSalary" type="java.lang.Integer">
+            <column name="EMP_SALARY" />
+        </property>
+        <property name="leaderId" type="java.lang.Integer">
+            <column name="LEADER_ID" />
+        </property>
+        <many-to-one name="restaurant" class="com.iroiro.spring.hibernate.entities.Restaurant" fetch="join">
+            <column name="RES_ID" />
+        </many-to-one>
+        <set name="Ordders" table="ORDDERS">
+            <key>
+                <column name="EMP_ID" />
+            </key>
+            <one-to-many class="com.iroiro.spring.hibernate.entities.Ordder" />
+        </set>
+    </class>
+</hibernate-mapping>
